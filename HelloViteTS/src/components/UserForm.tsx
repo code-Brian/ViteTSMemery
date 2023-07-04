@@ -1,0 +1,47 @@
+import {useState} from 'react'
+
+export const UserForm: React.FC = () => {
+
+  const [userName, setUserName] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+
+  const createUser = ( event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    console.log("form submitted!")
+    console.log(`Username: ${userName}`)
+    console.log(`Email: ${email}`)
+    console.log(`Password: ${password}`)
+  }
+
+  const handleUserNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.persist()
+    setUserName(event.target.value)
+  }
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value)
+  }
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value)
+  }
+
+  return (
+    <form onSubmit={createUser}>
+        <div>
+            <label>Username: </label>
+            <input type="text" name="name" value={userName} onChange={handleUserNameChange}/>
+        </div>
+        <div>
+            <label>Email: </label>
+            <input type="text" name="email" value={email} onChange={handleEmailChange}/>
+        </div>
+        <div>
+            <label>Password: </label>
+            <input type="text" name="password" value={password} onChange={handlePasswordChange}></input>
+        </div>
+        <button>Create New User</button>
+    </form>
+  )
+}
