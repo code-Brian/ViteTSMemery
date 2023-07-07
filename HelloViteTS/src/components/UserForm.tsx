@@ -5,13 +5,16 @@ export const UserForm: React.FC = () => {
   const [userName, setUserName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
+  const newUser = {userName, email, password}
 
   const createUser = ( event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     console.log("form submitted!")
-    console.log(`Username: ${userName}`)
-    console.log(`Email: ${email}`)
-    console.log(`Password: ${password}`)
+    console.log(newUser)
+    console.log("form reset")
+    setUserName("")
+    setEmail("")
+    setPassword("")
   }
 
   const handleUserNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,6 +45,12 @@ export const UserForm: React.FC = () => {
             <input type="text" name="password" value={password} onChange={handlePasswordChange}></input>
         </div>
         <button>Create New User</button>
+        <h3>Current form data values:</h3>
+        <ul>
+            <li>Username: {userName}</li>
+            <li>Email: {email}</li>
+            <li>Password: {password}</li>
+        </ul>
     </form>
   )
 }
