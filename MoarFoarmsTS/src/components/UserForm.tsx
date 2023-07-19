@@ -5,7 +5,7 @@ interface FormData {
     email: string
     password: string
 }
-
+    
 export const UserForm: React.FC = () => {
     const [formData, setFormData] = useState<FormData>({
         firstName: '',
