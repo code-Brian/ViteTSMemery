@@ -7,16 +7,20 @@ interface FormData {
 export const ToDoForm: React.FC = () => {
     const [formData, setFormData] = useState<FormData>(
         {
-            task:''
+            task:' '
         }
     )
-    
+
+    const [tasks, setTasks] = useState<string[]>([])
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         // do some stuff
+        setTasks([...tasks, formData.task])
+        setFormData({task: ""})
         console.log(formData)
     }
-    
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
@@ -25,8 +29,8 @@ export const ToDoForm: React.FC = () => {
             <div>
                 <label>Task:</label>
                 <input type="text" name="task" value={formData.task} onChange={handleChange}/>
-            </div>
+            </div>  
             <button>Create Task</button>
         </form>
-    )
+    )   
 }
