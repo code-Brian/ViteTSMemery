@@ -1,9 +1,7 @@
-type MessageProps = {
-    content: string
-}
+import { SingleMessageProps } from "../types/Message.types"
 
-export const Message = (props: MessageProps) => {
+export const Message: React.FC<SingleMessageProps> = ({content}) => {
     return (
-        <span>{props.content}</span>
+        <span>{content}</span>
     )
 }

@@ -1,14 +1,13 @@
 import {Message} from './Message'
+import {MessageListProps} from '../types/Message.types'
 
-type MessageListProps = {
-    messages: string[]
-}
 
-export const MessageList = (props: MessageListProps) => {
+
+export const MessageList: React.FC<MessageListProps> = ({messages}) => {
     return (
         <ul>
             {
-                props.messages.map((message, index) =>
+                messages.map((message, index) =>
                 <li key={index}><Message content={message}/></li>
                 )
             }

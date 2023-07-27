@@ -14,9 +14,12 @@ function App() {
 
   const handleMessageSubmit = (e:any) => {
     e.preventDefault()
-    setMessageList([...messageList, message])
-    setMessage("")
-    console.log(messageList)
+    if(message.length > 0)
+    {
+      setMessageList([...messageList, message])
+      setMessage("")
+      console.log(messageList)
+    }
 }
   return (
     
