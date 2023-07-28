@@ -1,15 +1,16 @@
 import {useEffect, useState} from 'react'
-import {PokemonListProps} from './types/Pokemon.types'
+import {PokemonList} from './components/PokemonList'
+import axios from 'axios'
 
 function App() {
-const [pokemonList, setPokemonList] = useState<[]>([])
+const [pokemonList, setPokemonList] = useState([])
 useEffect(() => {
-  fetch('https://pokeapi.co/api/v2/pokemon?limit=150&offset=0')
-  .then(response => response.json())
-  .then(response => console.log(response.results))
+  axios.get('https://pokeapi.co/api/v2/pokemon?limit=150&offset=0').then(response => setPokemonList(response.data.results))
 },[])
+
   return (
     <>
+      <PokemonList pokemon={pokemonList}/>
     </>
   )
 }

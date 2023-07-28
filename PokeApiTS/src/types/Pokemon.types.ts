@@ -1,9 +1,18 @@
-export type PokemonProps = {
-    index: number
+export type PokemonApiData = {
     name: string
-    type: string
+    url: string 
 }
 
 export type PokemonListProps = {
-    pokemon: PokemonProps[]
+    pokemon: PokemonApiData[]
+}
+
+export type PokemonProps = {
+    name: string
+    url: string
+}
+
+export type PokemonFullData = {
+    name: string
+    info: {}
 }

@@ -1,5 +1,6 @@
 import {PokemonListProps} from '../types/Pokemon.types'
 import {Pokemon} from './Pokemon'
+import {useState} from 'react'
 
 export const PokemonList: React.FC<PokemonListProps> = ({pokemon}) => {
     return (
@@ -7,7 +8,7 @@ export const PokemonList: React.FC<PokemonListProps> = ({pokemon}) => {
             <ul>
                 {
                     pokemon.map((pokemon, index) => 
-                    <Pokemon index={index} name={pokemon.name} type={pokemon.type}/>
+                        <Pokemon key={index} name={pokemon.name} url={pokemon.url} />
                     )
                 }
             </ul>
